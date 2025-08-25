@@ -1,29 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ===== Charts (kept as v2) ===== */
-  const bar = document.getElementById('barChart');
-  const pie = document.getElementById('pieChart');
-
-  if (bar || pie) {
-    const labels = ['হিফজ', 'কিরাআত', 'কিতাব বিভাগ', 'দাওরায়ে হাদিস'];
-    const data   = [120, 90, 140, 60]; // <-- আপনার ডেটা এখানে বদলান
-
-    if (bar) {
-      new Chart(bar, {
-        type: 'bar',
-        data: { labels, datasets: [{ label: 'শিক্ষার্থীর সংখ্যা', data }] },
-        options: { responsive: true, plugins:{ legend:{ display:false } } }
-      });
-    }
-    if (pie) {
-      new Chart(pie, {
-        type: 'pie',
-        data: { labels, datasets: [{ data }] },
-        options: { responsive: true }
-      });
-    }
-  }
-
-  /* ===== Smart, consistent mobile menu ===== */
+  /* ===== Mobile menu FIRST (always runs) ===== */
   const toggleBtn = document.getElementById('menuToggle');
   const menu      = document.getElementById('site-menu');
   const brand     = document.querySelector('.brand');
@@ -50,23 +26,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (!menu.classList.contains('show')) return;
-      const clickedInside = menu.contains(e.target) || toggleBtn.contains(e.target) || (brand && brand.contains(e.target));
-      if (!clickedInside) closeMenu();
+      const inside = menu.contains(e.target) || toggleBtn.contains(e.target) || (brand && brand.contains(e.target));
+      if (!inside) closeMenu();
     });
 
     // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-    // Close after selecting a link (for single-page navigation feel)
-    menu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => closeMenu());
-    });
+    // Close after link click
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-    // Reset when moving to desktop
+    // Reset on desktop resize
     const mq = window.matchMedia('(min-width: 769px)');
     const handleMQ = (ev) => { if (ev.matches) closeMenu(); };
-    mq.addEventListener ? mq.addEventListener('change', handleMQ) : mq.addListener(handleMQ);
+    if (mq.addEventListener) mq.addEventListener('change', handleMQ); else mq.addListener(handleMQ);
+  }
+
+  /* ===== Charts (guarded so errors can't break menu) ===== */
+  try {
+    const bar = document.getElementById('barChart');
+    const pie = document.getElementById('pieChart');
+    const hasChartLib = typeof window.Chart === 'function';
+
+    if (hasChartLib && (bar || pie)) {
+      const labels = ['হিফজ', 'কিরাআত', 'কিতাব বিভাগ', 'দাওরায়ে হাদিস'];
+      const data   = [120, 90, 140, 60]; // <-- আপনার ডেটা এখানে বদলান
+
+      if (bar) {
+        new Chart(bar, {
+          type: 'bar',
+          data: { labels, datasets: [{ label: 'শিক্ষার্থীর সংখ্যা', data }] },
+          options: { responsive: true, plugins:{ legend:{ display:false } } }
+        });
+      }
+      if (pie) {
+        new Chart(pie, {
+          type: 'pie',
+          data: { labels, datasets: [{ data }] },
+          options: { responsive: true }
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('Chart init skipped:', err);
   }
 });
