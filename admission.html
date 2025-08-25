@@ -3,49 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ভর্তি</title>
+  <title>ভর্তি ফরম</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">আজিজুল উলূম মাদরাসা</div>
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
-      <ul class="menu">
+      <div class="logo">আজিজুল উলূম মাদ্রাসা</div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">হোম</a></li>
-        <li><a href="students.html">শিক্ষার্থী পরিসংখ্যান</a></li>
         <li><a href="teachers.html">শিক্ষকমণ্ডলী</a></li>
-        <li><a href="advisory.html">পরামর্শক কমিটি</a></li>
+        <li><a href="students.html">শিক্ষার্থী পরিসংখ্যান</a></li>
+        <li><a href="advisory.html">পরামর্শ কমিটি</a></li>
         <li><a href="admission.html">ভর্তি</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h2>ভর্তি ফর্ম</h2>
-    <p><a href="forms/admission-form.pdf" target="_blank">📥 ভর্তি ফর্ম ডাউনলোড করুন</a></p>
-    <form class="form">
-      <label>নাম (পূর্ণ)</label><input type="text">
-      <label>পিতার নাম</label><input type="text">
-      <label>মাতার নাম</label><input type="text">
-      <label>জন্মতারিখ</label><input type="date">
-      <label>জাতীয়তা</label><input type="text">
-      <label>বর্তমান ঠিকানা</label><input type="text">
-      <label>স্থায়ী ঠিকানা</label><input type="text">
-      <label>অভিভাবকের ফোন</label><input type="text">
-      <label>আবেদনকারীর ফোন (ঐচ্ছিক)</label><input type="text">
-      <label>ইমেইল (ঐচ্ছিক)</label><input type="email">
-      <label>যে বিভাগে ভর্তি ইচ্ছুক</label><input type="text">
-      <label>সর্বশেষ শিক্ষা প্রতিষ্ঠান</label><input type="text">
-      <label>সর্বোচ্চ শ্রেণি/গ্রেড উত্তীর্ণ</label><input type="text">
-      <label>পাসের সাল</label><input type="text">
-      <label>হেফজ/মেমোরাইজেশন</label><input type="text">
-      <label>স্বাস্থ্যগত সমস্যা</label><input type="text">
-      <label>অভিভাবকের স্বাক্ষর</label><input type="text">
-      <label>তারিখ</label><input type="date">
-      <p>অনুগ্রহ করে সনদের কপি ও এক কপি পাসপোর্ট সাইজ ছবি সংযুক্ত করুন।</p>
-    </form>
+    <h2>ভর্তি ফরম</h2>
+    <p>অনুগ্রহ করে নিচের ভর্তি ফরমটি ডাউনলোড করে পূরণ করুন:</p>
+    <a href="forms/admission-form.pdf" download>ভর্তি ফরম ডাউনলোড করুন (PDF)</a>
   </main>
+
+  <script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,25 +1,14 @@
-
 body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-header { background: #006400; color: white; padding: 10px 0; }
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-.logo { font-size: 18px; font-weight: bold; }
-.menu { list-style: none; margin: 0; padding: 0; display: flex; }
-.menu li { margin: 0 10px; }
-.menu a { color: white; text-decoration: none; }
-.menu-icon { display: none; cursor: pointer; font-size: 24px; }
+header { background: #2c3e50; padding: 10px 20px; color: white; }
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin: 0 10px; }
+.nav-links a { color: white; text-decoration: none; }
+.menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; }
 
 @media (max-width: 768px) {
-  .menu { display: none; flex-direction: column; background: #006400; position: absolute; top: 50px; left: 0; right: 0; }
-  .menu li { text-align: center; padding: 10px 0; }
-  #menu-toggle:checked + .menu-icon + .menu { display: flex; }
-  .menu-icon { display: block; }
+  .menu-toggle { display: block; }
+  .nav-links { display: none; flex-direction: column; background: #34495e; width: 100%; }
+  .nav-links.active { display: flex; }
+  .nav-links li { margin: 10px 0; text-align: center; }
 }
-
-.hero { text-align: center; padding: 50px; background: #f4f4f4; }
-.card-container { display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; }
-.card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; flex: 1 1 200px; }
-.card img { width: 100px; height: 100px; border-radius: 50%; }
-
-form { display: grid; gap: 10px; padding: 20px; max-width: 500px; }
-form label { font-weight: bold; }
-form input { padding: 5px; }
