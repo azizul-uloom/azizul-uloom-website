@@ -1,32 +1,49 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ভর্তি ফরম</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">আজিজুল উলূম মাদ্রাসা</div>
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">হোম</a></li>
-        <li><a href="teachers.html">শিক্ষকমণ্ডলী</a></li>
-        <li><a href="students.html">শিক্ষার্থী পরিসংখ্যান</a></li>
-        <li><a href="advisory.html">পরামর্শ কমিটি</a></li>
-        <li><a href="admission.html">ভর্তি</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <h2>ভর্তি ফরম</h2>
-    <p>অনুগ্রহ করে নিচের ভর্তি ফরমটি ডাউনলোড করে পূরণ করুন:</p>
-    <a href="forms/admission-form.pdf" download>ভর্তি ফরম ডাউনলোড করুন (PDF)</a>
-  </main>
-
-  <script src="assets/app.js"></script>
-</body>
-</html>
+<html lang="bn"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ভর্তি</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header><div class="nav">
+  <h1>ভর্তি</h1>
+  <nav><ul>
+    <li><a href="index.html">হোম</a></li>
+    <li><a href="students.html">শিক্ষার্থী পরিসংখ্যান</a></li>
+    <li><a href="teachers.html">শিক্ষকমণ্ডলী</a></li>
+    <li><a href="advisory.html">উপদেষ্টা কমিটি</a></li>
+    <li><a href="admission.html">ভর্তি</a></li>
+  </ul></nav></div></header>
+<div class="container">
+  <section class="section">
+    <h3>অনলাইন ভর্তি ফর্ম</h3>
+    <p class="muted">এই ফর্মটি ডেমো। সাবমিশনের জন্য ইমেইল/গুগল ফর্ম ইন্টিগ্রেশন পরে যুক্ত করা যাবে।</p>
+    <form id="admissionForm" onsubmit="event.preventDefault(); alert('ধন্যবাদ! ডেমো ফর্ম সাবমিট হয়েছে।');">
+      <div class="grid">
+        <div class="card"><label>নাম (পূর্ণ)<br><input required name="name" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>পিতার নাম<br><input required name="father" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>মাতার নাম<br><input required name="mother" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>জন্মতারিখ (দিন/মাস/বছর)<br><input required name="dob" placeholder="dd/mm/yyyy" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>জাতীয়তা<br><input required name="nationality" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>বর্তমান ঠিকানা<br><input required name="present_address" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>স্থায়ী ঠিকানা<br><input required name="permanent_address" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>অভিভাবকের ফোন<br><input required name="guardian_phone" type="tel" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>আবেদনকারীর ফোন (ঐচ্ছিক)<br><input name="applicant_phone" type="tel" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>ইমেইল (ঐচ্ছিক)<br><input name="email" type="email" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>যে বিভাগে ভর্তি ইচ্ছুক<br><select name="dept" required style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"><option value="">নির্বাচন করুন</option><option>হিফজ</option><option>কিরাআত</option><option>কিতাব বিভাগ</option><option>দাওরায়ে হাদিস</option></select></label></div>
+        <div class="card"><label>সর্বশেষ শিক্ষা প্রতিষ্ঠান<br><input name="last_inst" required style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>সর্বোচ্চ শ্রেণি/গ্রেড উত্তীর্ণ<br><input name="highest_grade" required style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>পাসের সাল<br><input name="pass_year" required type="number" min="1990" max="2099" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card"><label>হেফজ/মেমোরাইজেশন (যদি থাকে, উদা: পারা সংখ্যা)<br><input name="hifz" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></label></div>
+        <div class="card" style="grid-column:1/-1"><label>স্বাস্থ্যগত সমস্যা (যদি থাকে)<br><textarea name="health" rows="3" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px"></textarea></label></div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:14px">
+        <button class="btn" type="submit">ফর্ম সাবমিট (ডেমো)</button>
+        <button class="btn secondary" type="button" onclick="window.print()">এই পেজ প্রিন্ট করুন</button>
+        <a class="btn" href="forms/admission-form.pdf" target="_blank">PDF ডাউনলোড/প্রিন্ট</a>
+      </div>
+      <p class="muted" style="margin-top:8px">নোট: অনুগ্রহ করে সনদের কপি ও এক কপি পাসপোর্ট সাইজ ছবি সংযুক্ত করুন।</p>
+    </form>
+  </section>
+</div>
+<footer>© ২০২৫ আজিজুল উলুম মাদরাসা</footer>
+</body></html>
